@@ -1,6 +1,6 @@
 class smansaTime{
 
-	constructor(t){
+	constructor(){
 		this.msMinute = 60;
 		this.msHour = this.msMinute * 60;
 		this.msDay = this.msHour * 24;

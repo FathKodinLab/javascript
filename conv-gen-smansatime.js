@@ -8,26 +8,48 @@ class smansaTime{
 		this.msYear = this.msDay * 365;
 	}
 
+	/*
+	* Conversion to another time format
+	* You can change the return value with time format that you want
+	*/
 	convertTime(t){
-		var d = new Date(t*1000);
-		var m = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+		var d = new Date(t*1000); // Object date
+		var m = ['January','February','March','April','May','June','July','August','September','October','November','December']; //list the month
 		return d.getDate()+' '+m[d.getMonth()]+' '+d.getFullYear()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
 	}
-
+	
+	/*
+	* Split UNIX Time
+	*/
 	genTime(c,p){
-		var el = c - p;
+		var el = c - p; //ellapse
+		var a; //temp
 		if(el < this.msMinute){
-			return el+' second';
+			if(el < 2){
+				return 'just now';
+			else if(el > 1){
+				return el+' seconds';
+			}
 		}else if(el < this.msHour){
-			return Math.floor(el/this.msMinute)+' minute';
+			a = Math.floor(el/this.msMinute);
+			if(a > 1){
+				return a+' minutes';
+			}else{
+				return a+' minute';
+			}
 		}else if(el < this.msDay){
-			return Math.floor(el/this.msHour)+' hour';
+			a = Math.floor(el/this.msHour);
+			if(a > 1){
+				return a+' hours';
+			}else{
+				return a+' hour';
+			}
 		}else if(el < this.msMonth){
 			var d = Math.floor(el/this.msDay);
 			if(d < 2){
 				return 'yesterday';
 			}else if(d > 1 && d < 4){
-				return d+' day';
+				return d+' days';
 			}else{
 				return this.convertTime(p);
 			}

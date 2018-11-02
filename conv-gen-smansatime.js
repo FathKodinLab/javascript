@@ -6,6 +6,13 @@ class smansaTime{
 		this.msDay = this.msHour * 24;
 		this.msMonth = this.msDay * 30;
 		this.msYear = this.msDay * 365;
+		
+		/*
+		* the calculation of day in a month/year is the general calculation. smansaTime is use it.
+		* If you do like calculate them by cabisat or uncabisat year, so do please.
+		* ex: sometime Februrary just 28 or 29 days, and other months is 30 or 31 days.
+		*/
+		
 	}
 
 	/*

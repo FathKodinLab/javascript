@@ -45,11 +45,11 @@ class smansaTime{
 				return a+' hour';
 			}
 		}else if(el < this.msMonth){
-			var d = Math.floor(el/this.msDay);
-			if(d < 2){
+			a = Math.floor(el/this.msDay);
+			if(a < 2){
 				return 'yesterday';
-			}else if(d > 1 && d < 4){
-				return d+' days';
+			}else if(a > 1 && a < 4){
+				return a+' days';
 			}else{
 				return this.convertTime(p);
 			}
